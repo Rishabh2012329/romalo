@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mynginx:
+    container_name: mynginx
+    restart: unless-stopped
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+    - 80:80
+  services:
+    container_name: services
+    build:
+      context: ./Services
+      dockerfile: Dockerfile
